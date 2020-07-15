@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     // handles showing up the popUp Menu
     public void showPopupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);         // init PopMenu obj
+        PopupMenu popupMenu = new PopupMenu(this, view);                    // init PopMenu obj
         popupMenu.setOnMenuItemClickListener(this);
         popupMenu.inflate(R.menu.popup_menu);
         popupMenu.show();

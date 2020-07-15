@@ -3,6 +3,7 @@ package com.neo.androidmenus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ListViewActivity extends AppCompatActivity {
+    private static final String TAG = "ListViewActivity";
+
     private ListView mMainListView;
     private ArrayAdapter<String> mListAdapter;
     ArrayList<String> mPlansList;
@@ -31,7 +34,12 @@ public class ListViewActivity extends AppCompatActivity {
         String[] planets = new String[]{"Mercury", "Venus", "Earth", "Mars", "Jupiter",
                 "Saturn", "Uranus", "Neptune"};
         mPlansList = new ArrayList<>();
+        Log.d(TAG, "onCreate: "+ mPlansList.size());
+
         mPlansList.addAll(Arrays.asList(planets));
+
+        Log.d(TAG, "onCreate: " + mPlansList.size());
+
         mListAdapter = new ArrayAdapter<>(this, R.layout.list_simplerow, mPlansList);
         mMainListView.setAdapter(mListAdapter);
 
@@ -80,14 +88,14 @@ public class ListViewActivity extends AppCompatActivity {
      */
     private void deleteSelectedItems() {
         SparseBooleanArray checkedItemPositions = mMainListView.getCheckedItemPositions();    // gets the checked items from the listView
-        int itemCount = mMainListView.getCount();
 
+        int itemCount = mMainListView.getCount();
         for (int i = itemCount - 1; i >= 0; i--) {
-            if (checkedItemPositions.get(i)) {
+            if (checkedItemPositions.get(i)) {          // checks if the item at instant pos has been checked
                 mListAdapter.remove(mPlansList.get(i));
             }
         }
-        checkedItemPositions.clear();
+        checkedItemPositions.clear();                 // clears from mapping to free up space and reorganise mapping
         mListAdapter.notifyDataSetChanged();
 
 
