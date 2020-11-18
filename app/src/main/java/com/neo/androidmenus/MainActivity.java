@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             return true;
         }
 
-
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
             return false;

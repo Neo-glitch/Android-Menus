@@ -27,28 +27,21 @@ public class ListViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
-
         mMainListView = findViewById(R.id.mainListView);
 
         // creates and populates a list of planer shapes
         String[] planets = new String[]{"Mercury", "Venus", "Earth", "Mars", "Jupiter",
                 "Saturn", "Uranus", "Neptune"};
         mPlansList = new ArrayList<>();
-        Log.d(TAG, "onCreate: "+ mPlansList.size());
-
         mPlansList.addAll(Arrays.asList(planets));
-
-        Log.d(TAG, "onCreate: " + mPlansList.size());
 
         mListAdapter = new ArrayAdapter<>(this, R.layout.list_simplerow, mPlansList);
         mMainListView.setAdapter(mListAdapter);
 
         mMainListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);    // allows selection of more than one item from the listView
-
         mMainListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-                // called when item is selected or deselected # listens for change to state
             }
 
             @Override
