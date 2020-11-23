@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--affects only one item at a time-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/contextMenu1"
         android:title="Contextual Menu 1"/>

@@ -42,6 +42,7 @@ public class ListViewActivity extends AppCompatActivity {
         mMainListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+                // to something everyTime and item is selected and unselected from listView
             }
 
             @Override
@@ -71,6 +72,7 @@ public class ListViewActivity extends AppCompatActivity {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
+                // free up resources
             }
         });
     }
